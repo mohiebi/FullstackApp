@@ -4,13 +4,15 @@
         :key="listing.id"
     >
         <Link :href="`/listing/${listing.id}`">
-            {{ listing.city }}
+            <ListingAddress :listing="listing" />
         </Link>
     </div>
 </template>
 
 <script setup>
+    import ListingAddress from '@/components/ListingAddress.vue';
     import { Link } from '@inertiajs/vue3';
+
     defineProps({
         listings: Array,
     })
