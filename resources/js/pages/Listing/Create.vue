@@ -69,7 +69,7 @@ import { useForm } from '@inertiajs/vue3';
         code: null,
         price: 0,
     });
-    const create = () => form.post('/listing');
+    const create = () => form.post(route('listing.create'));
 </script>
 
 <style scoped>
