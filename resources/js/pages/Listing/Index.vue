@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
     import ListingAddress from '@/components/ListingAddress.vue';
     import { Link } from '@inertiajs/vue3';
 
