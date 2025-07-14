@@ -32,11 +32,6 @@
       </div>
 
       <div>
-        <label>Street Nr</label>
-        <input v-model.number="form.street_nr" type="text" />
-      </div>
-
-      <div>
         <label>Price</label>
         <input v-model.number="form.price" type="text" />
       </div>
@@ -49,7 +44,7 @@
 </template>
 
 <script setup>
-import { useForm } from '@inertiajs/inertia-vue3'
+import { useForm } from '@inertiajs/vue3';
 
 const form = useForm({
   beds: 0,
