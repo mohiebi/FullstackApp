@@ -1,6 +1,6 @@
 <template>
-    <div v-if="successMessage" class="success">
-        {{ successMessage }}
+    <div v-if="flashSuccessMessage" class="success">
+        {{ flashSuccessMessage }}
     </div>
     <div v-for="listing in listings" :key="listing.id">
         <Link :href="`/listing/${listing.id}`">
@@ -20,7 +20,7 @@ defineProps({
 
 const page = usePage();
 
-const successMessage = computed(() => page.props.flash?.success);
+const flashSuccessMessage = computed(() => page.props.flash?.success);
 </script>
 
 <style scoped>
