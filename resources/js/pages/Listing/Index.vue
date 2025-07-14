@@ -4,7 +4,7 @@
         :key="listing.id"
     >
         <Link :href="`/listing/${listing.id}`">
-            <ListingAddress :listing?="listing" />
+            <ListingAddress :listing="listing" />
         </Link>
     </div>
 </template>
