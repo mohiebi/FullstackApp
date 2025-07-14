@@ -1,10 +1,10 @@
 <template>
     <div 
         v-for="listing in listings"
-        :key="listing.id"
+        :key="listing?.id"
     >
-        <Link :href="`/listing/${listing.id}`">
-            <ListingAddress :listing="listing" />
+        <Link :href="`/listing/${listing?.id}`">
+            <ListingAddress :listing?="listing" />
         </Link>
     </div>
 </template>
