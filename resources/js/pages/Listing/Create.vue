@@ -43,7 +43,7 @@
   </form>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useForm } from '@inertiajs/vue3';
 
 const form = useForm({

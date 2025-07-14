@@ -1,10 +1,10 @@
 <template>
     <span>
-        {{ listing?.street }} {{ listing?.city }}, for {{ listing?.price }}
+        {{ listing.street }} {{ listing.city }}, for {{ listing.price }}
     </span>
 </template>
 
-<script setup lang="ts">
+<script setup>
     defineProps({
         listing: Object,
     })
