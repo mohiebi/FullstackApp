@@ -17,7 +17,7 @@
         </div>
     </header>
 
-    <main class="container mx-auto p-4">
+    <main class="container mx-auto p-4 ">
         <div v-if="flashSuccess"
             class="mb-4 border rounded-md shadow-sm border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900 p-2">
             {{ flashSuccess }}
@@ -32,7 +32,7 @@ import { computed } from 'vue'
 
 const page = usePage()
 const flashSuccess = computed(() =>
-     page.props?.flash?.success ?? null
+    page.props?.flash?.success ?? null
 );
 
 </script>
