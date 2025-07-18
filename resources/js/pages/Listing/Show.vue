@@ -15,9 +15,21 @@
 
             <Box>
                 <template #header>
-                    Offer
+                    Monthly Payment
                 </template>
-                Make an offer
+                <div>
+                    <label class="label">Interest rate ({{ interestRate }}%)</label>
+                    <input v-model.number="interestRate" type="range" min="0.1" max="30" step="0.1"
+                        class="price-range" />
+
+                    <label class="label">Duration ({{ duration }} years)</label>
+                    <input v-model.number="duration" type="range" min="3" max="35" step="1" class="price-range" />
+
+                    <div class="text-gray-600 dark:text-gray-300 mt-2">
+                        <div class="text-gray-400">Your monthly payment</div>
+                        <Price :price="500" class="text-3xl" />
+                    </div>
+                </div>
             </Box>
         </div>
     </div>
@@ -29,11 +41,13 @@ import ListingAddress from '@/components/ui/Listings/ListingAddress.vue';
 import ListingSpace from '@/components/ui/Listings/ListingSpace.vue';
 import Price from '@/components/ui/Listings/Price.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
+import { ref } from 'vue';
 
-
-defineProps({
+const interestRate = ref(2.5);
+const duration = ref(25);
+const props = defineProps({
     listing: Object,
-})
+});
 </script>
 
 <script>
