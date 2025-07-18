@@ -27,7 +27,7 @@
 
                     <div class="text-gray-600 dark:text-gray-300 mt-2">
                         <div class="text-gray-400">Your monthly payment</div>
-                        <Price :price="500" class="text-3xl" />
+                        <Price :price="monthlyPayment" class="text-3xl" />
                     </div>
                 </div>
             </Box>
@@ -48,6 +48,14 @@ const duration = ref(25);
 const props = defineProps({
     listing: Object,
 });
+const monthlyPayment = computed(() => {
+    const principle = props.listing.price
+    const monthlyInterest = interestRate.value / 100 / 12
+    const numberOfPaymentMonths = duration.value * 12
+
+    return principle * monthlyInterest * (Math.pow(1 + monthlyInterest, numberOfPaymentMonths)) / (Math.pow(1 + monthlyInterest, numberOfPaymentMonths) - 1)
+})
+
 </script>
 
 <script>
