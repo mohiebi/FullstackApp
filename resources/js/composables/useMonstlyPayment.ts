@@ -22,5 +22,11 @@ export const useMonthlyPayment = (
         );
     });
 
-    return monthlyPayment;
+    const totalPaid = computed(() => {
+        return unref(duration) * 12 * monthlyPayment.value
+    })
+
+    const totalInterest = computed(() => totalPaid.value - total)
+
+    return { monthlyPayment, totalPaid, totalInterest }
 };
