@@ -14,7 +14,7 @@
                     </div>
                     <Link :href="route('listing.create')" class="btn-primary">+ New Listing</Link>
                     <div>
-                        logout
+                        <Link :href="route('logout')">Logout</Link>
                     </div>
                 </div>
                 <div v-else class="flex items-center gap-4">
