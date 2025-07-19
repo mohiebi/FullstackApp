@@ -8,8 +8,18 @@
                 <div class="text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center">
                     <Link :href="route('listing.index')">Larevel + Vue</Link>
                 </div>
-                <div>
+                <div v-if="user" class="flex gap-4 items-center">
+                    <div>
+                        {{ user.name }}
+                    </div>
                     <Link :href="route('listing.create')" class="btn-primary">+ New Listing</Link>
+                    <div>
+                        logout
+                    </div>
+                </div>
+                <div v-else class="flex items-center gap-4">
+                    <Link :href="route('login')"> Login </Link>
+                    <Link :href="route('register')"> Register </Link>
                 </div>
             </nav>
         </div>
@@ -31,6 +41,9 @@ import { computed } from 'vue'
 const page = usePage()
 const flashSuccess = computed(() =>
     page.props?.flash?.success ?? null
+);
+const user = computed(() =>
+    page.props?.auth?.user ?? null
 );
 
 </script>
