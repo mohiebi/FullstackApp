@@ -15,4 +15,5 @@ Route::get('dashboard', function () {
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
 
-Route::resource('listing', ListingController::class);
+Route::resource('listing', ListingController::class)->only(['index', 'show']);
+Route::resource('listing', ListingController::class)->except(['index', 'show'])->middleware('auth');
