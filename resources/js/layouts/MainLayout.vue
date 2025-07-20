@@ -17,7 +17,7 @@
                         <Link :href="route('logout')" method="POST"> Logout </Link>
                     </div>
                 </div>
-                <div v-else class=" flex items-center gap-4">
+                <div v-else class=" flex items-center gap-3">
                     <Link :href="route('login')"> Login </Link>
                     <Link :href="route('register')"> Register </Link>
                 </div>
