@@ -16,9 +16,10 @@ class ListingController extends Controller
     {
         Gate::authorize('viewAny', Listing::class);
 
-        return inertia('Listing/Index', 
+        return inertia(
+            'Listing/Index',
             [
-                'listings'=> Listing::all()
+                'listings' => Listing::all()
             ]
         );
     }
@@ -65,9 +66,10 @@ class ListingController extends Controller
         //     abort(403);
         // }
         Gate::authorize('view', $listing);
-        return inertia('Listing/Show', 
+        return inertia(
+            'Listing/Show',
             [
-                'listing'=> $listing
+                'listing' => $listing
             ]
         );
     }
