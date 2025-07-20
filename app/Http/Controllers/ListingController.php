@@ -14,6 +14,8 @@ class ListingController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Listing::class);
+
         return inertia('Listing/Index', 
             [
                 'listings'=> Listing::all()
@@ -26,7 +28,8 @@ class ListingController extends Controller
      */
     public function create()
     {
-        Gate::authorize('create');
+        Gate::authorize('viewAny', Listing::class);
+
         return inertia('Listing/Create');
     }
 
@@ -35,7 +38,7 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('create');
+        Gate::authorize('create', Listing::class);
         // $request->user()->listings()->create()
         Auth::user()->listings()->create(
             $request->validate([
