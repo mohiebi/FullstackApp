@@ -17,7 +17,6 @@ defineProps({
     listings: {
         type: Object,
         required: true,
-        // validator: val => Array.isArray(val.data) && val.links
     }
 });
 </script>
