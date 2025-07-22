@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\RealtorListingController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,3 +18,7 @@ require __DIR__ . '/auth.php';
 
 Route::resource('listing', ListingController::class)->only(['create', 'store', 'edit', 'update', 'destroy'])->middleware('auth');
 Route::resource('listing', ListingController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);
+
+Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function () {
+    Route::resource('listing', RealtorListingController::class);
+});
