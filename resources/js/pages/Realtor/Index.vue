@@ -23,12 +23,12 @@
 </template>
 
 <script setup>
-import ListingAddress from '@/Components/ListingAddress.vue'
-import ListingSpace from '@/Components/ListingSpace.vue'
-import Price from '@/Components/Price.vue'
-import Box from '@/Components/UI/Box.vue'
+import Box from '@/components/ui/Listings/Box.vue';
+import ListingAddress from '@/components/ui/Listings/ListingAddress.vue'
+import ListingSpace from '@/components/ui/Listings/ListingSpace.vue';
+import Price from '@/components/ui/Listings/Price.vue';
 import { Link } from '@inertiajs/vue3'
 defineProps({
-  Listings: Array,
-})
+  listings: Array,
+});
 </script>
