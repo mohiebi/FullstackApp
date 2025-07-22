@@ -9,9 +9,9 @@
                     <Link :href="route('listing.index')">Larevel + Vue</Link>
                 </div>
                 <div v-if="user" class="flex gap-4 items-center">
-                    <div>
+                    <Link :href="route('realtor.listing.index')">
                         {{ user.name }}
-                    </div>
+                    </Link>
                     <Link :href="route('listing.create')" class="btn-primary">+ New Listing</Link>
                     <div>
                         <Link :href="route('logout')" method="POST"> Logout </Link>
