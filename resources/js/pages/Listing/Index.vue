@@ -25,7 +25,6 @@ defineProps({
 </script>
 
 <script>
-
 export default {
     layout: MainLayout
 }
