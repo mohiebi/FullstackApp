@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class RealtorListingController extends Controller
 {
@@ -61,8 +63,12 @@ class RealtorListingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Listing $listing)
     {
-        //
+        Gate::authorize('delete', $listing);
+        $listing->deleteOrFail();
+
+        return redirect()->back()
+            ->with('success', 'listing was deleted');
     }
 }

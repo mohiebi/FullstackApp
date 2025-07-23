@@ -128,10 +128,6 @@ class ListingController extends Controller
      */
     public function destroy(Listing $listing)
     {
-        Gate::authorize('delete', $listing);
-        $listing->delete();
-
-        return redirect()->back()
-            ->with('success', 'listing was deleted');
+        //
     }
 }
