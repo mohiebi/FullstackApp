@@ -12,16 +12,17 @@
 
 <script setup>
 import { Inertia } from '@inertiajs/inertia'
+import { debounce } from 'lodash'
 
 const filterForm = reactive({
     deleted: false,
 })
 // reactive / ref / computed
 watch(
-    filterForm, () => Inertia.get(
+    filterForm, debounce(() => Inertia.get(
         route('realtor.listing.index'),
         filterForm,
         { preserveState: true, preserveScroll: true },
-    ),
+    ), 1000),
 )
 </script>
