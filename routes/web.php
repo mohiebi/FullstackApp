@@ -16,9 +16,9 @@ Route::get('dashboard', function () {
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';
 
-Route::resource('listing', ListingController::class)->only(['create', 'store', 'edit', 'update', 'destroy'])->middleware('auth');
-Route::resource('listing', ListingController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);
+Route::resource('listing', ListingController::class)->only(['create', 'store', 'edit', 'update'])->middleware('auth');
+Route::resource('listing', ListingController::class)->except(['create', 'store', 'edit', 'update']);
 
 Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function () {
-    Route::resource('listing', RealtorListingController::class);
+    Route::resource('listing', RealtorListingController::class)->only(['index', 'destroy']);
 });
