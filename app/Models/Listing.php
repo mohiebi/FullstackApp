@@ -22,6 +22,12 @@ class Listing extends Model
         'street',
         'price'
     ];
+    protected $sortable = [
+        'price',
+        'beds',
+        'baths',
+        'created_at'
+    ];
 
     /**
      * Get the user that owns the Listing
@@ -63,7 +69,10 @@ class Listing extends Model
             fn($query, $value) => $query->withTrashed()
         )->when(
             $filters['by'] ?? false,
-            fn($query, $value) => $query->orderBy($value, $filters['order'] ?? 'desc')
+            fn($query, $value) =>
+            !in_array($value, $this->sortable)
+                ? $query
+                : $query->orderBy($value, $filters['order'] ?? 'desc')
         );
     }
 }
