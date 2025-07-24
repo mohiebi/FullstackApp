@@ -11,6 +11,8 @@
                 <select v-model="filterForm.by" class="input-filter-l w-24">
                     <option value="created_at">Added</option>
                     <option value="price">Price</option>
+                    <option value="beds">beds</option>
+                    <option value="baths">baths</option>
                 </select>
                 <select v-model="filterForm.order" class="input-filter-r w-32">
                     <option v-for="option in sortOptions" :key="option.value" :value="option.value">
@@ -45,6 +47,26 @@ const sortLabels = {
         },
         {
             label: 'Cheapest',
+            value: 'asc',
+        },
+    ],
+    beds: [
+        {
+            label: 'Most',
+            value: 'desc',
+        },
+        {
+            label: 'Least',
+            value: 'asc',
+        },
+    ],
+    baths: [
+        {
+            label: 'Most',
+            value: 'desc',
+        },
+        {
+            label: 'Least',
             value: 'asc',
         },
     ],
