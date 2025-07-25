@@ -6,5 +6,13 @@
 </template>
 
 <script setup>
+import MainLayout from '@/layouts/MainLayout.vue';
+
 defineProps({ listing: Object })
+</script>
+
+<script>
+export default {
+    layout: MainLayout
+}
 </script>
