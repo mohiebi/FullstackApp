@@ -71,7 +71,6 @@ const form = useForm({
     city: null,
     street: null,
     code: null,
-    street_nr: null,
     price: 0,
 })
 const create = () => form.post(route('realtor.listing.store'))
