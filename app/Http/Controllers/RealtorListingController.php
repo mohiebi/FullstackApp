@@ -119,4 +119,13 @@ class RealtorListingController extends Controller
         return redirect()->back()
             ->with('success', 'listing was deleted');
     }
+    /**
+     * Restore the specified resource from storage.
+     */
+    public function restore(Listing $listing)
+    {
+        Gate::authorize('restore', $listing);
+        $listing->restore();
+        return redirect()->back()->with('success', 'Listing was Restored');
+    }
 }
