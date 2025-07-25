@@ -19,5 +19,8 @@ require __DIR__ . '/auth.php';
 Route::resource('listing', ListingController::class)->only(['index', 'show']);
 
 Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function () {
-    Route::resource('listing', RealtorListingController::class)->only(['index', 'destroy', 'edit', 'update', 'create', 'store']);
+    Route::name('listing.restore')
+        ->put('listing/{listing}/restore', [RealtorListingController::class, 'restore'])->withTrashed();
+    Route::resource('listing', RealtorListingController::class)
+        ->except(['show'])->withTrashed();
 });
