@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\RealtorListingController;
+use App\Http\Controllers\RealtorListingImageController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -24,3 +25,6 @@ Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function (
     Route::resource('listing', RealtorListingController::class)
         ->except(['show'])->withTrashed();
 });
+
+Route::resource('listing.image', RealtorListingImageController::class)
+    ->only(['create', 'store']);
