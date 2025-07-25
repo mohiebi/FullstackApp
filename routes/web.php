@@ -16,8 +16,8 @@ Route::get('dashboard', function () {
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';
 
-Route::resource('listing', ListingController::class)->only(['create', 'store']);
+Route::resource('listing', ListingController::class)->only(['index', 'show']);
 
 Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function () {
-    Route::resource('listing', RealtorListingController::class)->only(['index', 'destroy', 'edit', 'update']);
+    Route::resource('listing', RealtorListingController::class)->only(['index', 'destroy', 'edit', 'update', 'create', 'store']);
 });
