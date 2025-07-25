@@ -41,9 +41,7 @@ class ListingController extends Controller
      */
     public function create()
     {
-        Gate::authorize('viewAny', Listing::class);
-
-        return inertia('Listing/Create');
+        //
     }
 
     /**
@@ -51,22 +49,7 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('create', Listing::class);
-        // $request->user()->listings()->create()
-        Auth::user()->listings()->create(
-            $request->validate([
-                'beds' => 'required|integer|min:1|max:20',
-                'baths' => 'required|integer|min:1|max:20',
-                'area' => 'required|integer|min:15|max:1500',
-                'city' => 'required',
-                'code' => 'required|integer',
-                'street' => 'required',
-                'price' => 'required|integer|min:1|max:20000000',
-            ])
-        );
-
-        return redirect()->route('listing.index')
-            ->with('success', 'Listing was created!');
+        //
     }
 
     /**

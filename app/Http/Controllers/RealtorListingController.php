@@ -37,7 +37,9 @@ class RealtorListingController extends Controller
      */
     public function create()
     {
-        //
+        Gate::authorize('viewAny', Listing::class);
+
+        return inertia('Realtor/Create');
     }
 
     /**
@@ -45,7 +47,22 @@ class RealtorListingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Gate::authorize('create', Listing::class);
+        // $request->user()->listings()->create()
+        Auth::user()->listings()->create(
+            $request->validate([
+                'beds' => 'required|integer|min:1|max:20',
+                'baths' => 'required|integer|min:1|max:20',
+                'area' => 'required|integer|min:15|max:1500',
+                'city' => 'required',
+                'code' => 'required|integer',
+                'street' => 'required',
+                'price' => 'required|integer|min:1|max:20000000',
+            ])
+        );
+
+        return redirect()->route('realtor.listing.index')
+            ->with('success', 'Listing was created!');
     }
 
     /**
@@ -63,7 +80,7 @@ class RealtorListingController extends Controller
     {
         Gate::authorize('update', $listing);
         return inertia(
-            'Listing/Edit',
+            'Realtor/Edit',
             [
                 'listing' => $listing
             ]
@@ -84,12 +101,11 @@ class RealtorListingController extends Controller
                 'city' => 'required',
                 'code' => 'required',
                 'street' => 'required',
-                'street_nr' => 'required|min:1|max:1000',
                 'price' => 'required|integer|min:1|max:20000000',
             ])
         );
 
-        return redirect()->route('listing.index')
+        return redirect()->route('realtor.listing.index')
             ->with('success', 'Listing was changed!');
     }
     /**
