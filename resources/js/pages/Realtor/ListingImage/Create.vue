@@ -25,6 +25,7 @@ import { router, useForm } from '@inertiajs/vue3';
 import { computed } from 'vue';
 import NProgress from 'nprogress'
 
+defineOptions({ layout: MainLayout });
 
 const props = defineProps({ listing: Object })
 const form = useForm({
@@ -50,10 +51,4 @@ const addFiles = (event) => {
     }
 }
 const reset = () => form.reset('images')
-</script>
-
-<script>
-export default {
-    layout: MainLayout
-}
 </script>

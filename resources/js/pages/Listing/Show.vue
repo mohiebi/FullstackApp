@@ -63,6 +63,8 @@ import { useMonthlyPayment } from '@/composables/useMonstlyPayment';
 import MainLayout from '@/layouts/MainLayout.vue';
 import { ref } from 'vue';
 
+defineOptions({ layout: MainLayout });
+
 const interestRate = ref(2.5);
 const duration = ref(25);
 const props = defineProps({
@@ -70,10 +72,4 @@ const props = defineProps({
 });
 const { monthlyPayment, totalPaid, totalInterest } = useMonthlyPayment(props.listing.price, interestRate, duration);
 
-</script>
-
-<script>
-export default {
-    layout: MainLayout
-}
 </script>

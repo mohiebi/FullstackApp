@@ -63,6 +63,7 @@ import { Label } from '@/components/ui/label';
 import MainLayout from '@/layouts/MainLayout.vue';
 import { useForm } from '@inertiajs/vue3';
 
+defineOptions({ layout: MainLayout });
 
 const form = useForm({
     beds: 0,
@@ -74,10 +75,4 @@ const form = useForm({
     price: 0,
 })
 const create = () => form.post(route('realtor.listing.store'))
-</script>
-
-<script>
-export default {
-    layout: MainLayout
-}
 </script>

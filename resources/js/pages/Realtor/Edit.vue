@@ -63,6 +63,7 @@ import { Label } from '@/components/ui/label';
 import MainLayout from '@/layouts/MainLayout.vue';
 import { useForm } from '@inertiajs/vue3';
 
+defineOptions({ layout: MainLayout });
 
 const props = defineProps({
     listing: Object,
@@ -77,10 +78,4 @@ const form = useForm({
     price: props.listing.price,
 })
 const update = () => form.put(route('realtor.listing.update', props.listing))
-</script>
-
-<script>
-export default {
-    layout: MainLayout
-}
 </script>

@@ -14,6 +14,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
 import Listing from '@/pages/Listing/Components/Listing.vue';
 import Filters from '@/pages/Listing/Components/Filters.vue';
 
+defineOptions({ layout: MainLayout });
 
 defineProps({
     listings: {
@@ -22,10 +23,4 @@ defineProps({
     },
     filters: Object,
 });
-</script>
-
-<script>
-export default {
-    layout: MainLayout
-}
 </script>

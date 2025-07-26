@@ -57,14 +57,11 @@ import MainLayout from '@/layouts/MainLayout.vue';
 import { Link } from '@inertiajs/vue3'
 import RealtorFilters from './components/RealtorFilters.vue';
 import Pagination from '@/components/ui/Pagination.vue';
+
+defineOptions({ layout: MainLayout });
+
 defineProps({
     listings: Object,
     filters: Object,
 });
-</script>
-
-<script>
-export default {
-    layout: MainLayout
-}
 </script>
