@@ -25,5 +25,5 @@ Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function (
     Route::resource('listing', RealtorListingController::class)
         ->except(['show'])->withTrashed();
     Route::resource('listing.image', RealtorListingImageController::class)
-        ->only(['create', 'store']);
+        ->only(['create', 'store', 'destroy']);
 });
