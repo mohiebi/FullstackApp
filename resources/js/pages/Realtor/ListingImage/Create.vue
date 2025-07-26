@@ -21,8 +21,10 @@
 <script setup>
 import Box from '@/components/ui/Listings/Box.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
-import { useForm } from '@inertiajs/vue3';
+import { router, useForm } from '@inertiajs/vue3';
 import { computed } from 'vue';
+import NProgress from 'nprogress'
+
 
 const props = defineProps({ listing: Object })
 const form = useForm({
@@ -37,6 +39,11 @@ const upload = () => {
         },
     )
 }
+router.on('progress', (event) => {
+    if (event.detail.progress.percentage) {
+        NProgress.set((event.detail.progress.percentage / 100) * 0.9)
+    }
+})
 const addFiles = (event) => {
     for (const image of event.target.files) {
         form.images.push(image)
