@@ -56,4 +56,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Listing::class, 'by_user_id');
     }
+
+    /**
+     * Get all of the bidder for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function bidder(): HasMany
+    {
+        return $this->hasMany(Offer::class, 'bidder_id');
+    }
 }

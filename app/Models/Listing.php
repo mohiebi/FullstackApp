@@ -14,6 +14,11 @@ class Listing extends Model
     /** @use HasFactory<\Database\Factories\ListingFactory> */
     use HasFactory, SoftDeletes;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
     protected $fillable = [
         'beds',
         'baths',
@@ -48,6 +53,16 @@ class Listing extends Model
     public function scopeMostRecent(Builder $query): Builder
     {
         return $query->orderByDesc('created_at');
+    }
+
+    /**
+     * Get all of the offers for the Listing
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function offers(): HasMany
+    {
+        return $this->hasMany(Offer::class, 'listing_id');
     }
 
     public function scopeFilter(Builder $query, array $filters): Builder
