@@ -53,6 +53,7 @@
                     </div>
                 </div>
             </Box>
+            <MakeOffer :listing-id="listing.id" :price="listing.price" />
         </div>
     </div>
 </template>
@@ -65,6 +66,7 @@ import Price from '@/components/ui/Listings/Price.vue';
 import { useMonthlyPayment } from '@/composables/useMonstlyPayment';
 import MainLayout from '@/layouts/MainLayout.vue';
 import { ref } from 'vue';
+import MakeOffer from '@/pages/Listing/Components/MakeOffer.vue';
 
 defineOptions({ layout: MainLayout });
 
