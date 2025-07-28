@@ -11,7 +11,7 @@ use Inertia\Response;
 class ListingOfferController extends Controller
 {
     Public function store(Listing $listing, Request $request) : RedirectResponse {
-        $listing->offer()->save(
+        $listing->offers()->save(
             Offer::make(
                 $request->validate([
                     'amount' => 'required|integer|min:1|max:50000000'
