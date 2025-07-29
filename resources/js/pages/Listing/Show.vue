@@ -57,7 +57,7 @@
                 v-if="user"
                 :listing-id="listing.id"
                 :price="listing.price"
-                @offer-updated="$event"
+                @offer-updated="offer = $event"
             />
         </div>
     </div>
