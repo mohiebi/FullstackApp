@@ -13,7 +13,8 @@
         </Box>
 
         <div v-else class="md:col-span-7 items-center">
-            This is displayed when there are offers!
+            <Offer v-for="offer in listing.offers" :key="offer.id" class="mb-4" :offer="offer"
+                :listing-price="listing.price" />
         </div>
 
         <Box class="md:col-span-5">
@@ -35,6 +36,7 @@ import Price from '@/components/ui/Listings/Price.vue'
 import MainLayout from '@/layouts/MainLayout.vue'
 import { Link } from '@inertiajs/vue3'
 import { computed } from 'vue'
+import Offer from '@/pages/Realtor/components/Offer.vue'
 
 
 const props = defineProps({
