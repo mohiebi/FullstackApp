@@ -38,14 +38,14 @@
                     <div class="mt-2">
                         <Link :href="route('realtor.listing.image.create', listing)"
                             class="block w-full btn-outline text-xs font-medium text-center">
-                            Images({{ listing.images_count }})
+                        Images({{ listing.images_count }})
                         </Link>
                     </div>
 
                     <div class="mt-2">
-                        <Link :href="route('realtor.listing.show', listing )"
+                        <Link :href="route('realtor.listing.show', listing)"
                             class="block w-full btn-outline text-xs font-medium text-center">
-                            Offers({{ listing.offers_count }})
+                        Offers({{ listing.offers_count }})
                         </Link>
                     </div>
                 </section>

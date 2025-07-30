@@ -52,8 +52,8 @@ const max = computed(() => Math.round(props.price * 2))
 const emit = defineEmits(['offerUpdated'])
 
 watch(
-  () => form.amount, 
-  debounce((value) => emit('offerUpdated', value), 200),
+    () => form.amount,
+    debounce((value) => emit('offerUpdated', value), 200),
 )
 
 </script>
