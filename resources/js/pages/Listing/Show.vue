@@ -59,6 +59,7 @@
                 :price="listing.price"
                 @offer-updated="offer = $event"
             />
+            <OfferMade v-if="user && offerMade" :offer="offerMade" />
         </div>
     </div>
 </template>
@@ -73,6 +74,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
 import { computed, ref } from 'vue';
 import MakeOffer from '@/pages/Listing/Components/MakeOffer.vue';
 import { usePage } from '@inertiajs/vue3';
+import OfferMade from './Components/OfferMade.vue';
 
 defineOptions({ layout: MainLayout });
 
@@ -80,6 +82,7 @@ const interestRate = ref(2.5);
 const duration = ref(25);
 const props = defineProps({
     listing: Object,
+    offerMade: Object,
 });
 const page = usePage()
 const user = computed(() =>
