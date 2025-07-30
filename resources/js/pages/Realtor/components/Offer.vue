@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="text-gray-500 text-sm">
-                    Made by John Doe
+                    Made by {{ offer.bidder.name }}
                 </div>
 
                 <div class="text-gray-500 text-sm">
@@ -20,8 +20,9 @@
                 </div>
             </div>
             <div>
-                <Link class="btn-outline text-xs font-medium" as="button">
-                Accept
+                <Link :href="route('realtor.offer.accept', offer)" class="btn-outline text-xs font-medium" as="button"
+                    method="put">
+                    Accept
                 </Link>
             </div>
         </section>
