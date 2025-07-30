@@ -54,7 +54,7 @@
                 </div>
             </Box>
             <MakeOffer
-                v-if="user"
+                v-if="user && !offerMade"
                 :listing-id="listing.id"
                 :price="listing.price"
                 @offer-updated="offer = $event"
