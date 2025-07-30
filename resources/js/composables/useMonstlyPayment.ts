@@ -6,7 +6,7 @@ export const useMonthlyPayment = (
     duration: number | Ref<number>
 ) => {
     const monthlyPayment = computed(() => {
-        const principal = total;
+        const principal =  unref(total);
         const monthlyInterest = unref(interestRate) / 100 / 12;
         const numberOfMonths = unref(duration) * 12;
 
