@@ -30,6 +30,7 @@ class ListingController extends Controller
                 'filters' => $filters,
                 'listings' => Listing::mostRecent()
                     ->filter($filters)
+                    ->withoutSold()
                     ->paginate(12)
                     ->withQueryString()
             ]
@@ -60,7 +61,7 @@ class ListingController extends Controller
         Gate::authorize('view', $listing);
 
         $listing->load('images');
-        $offer= Auth::user() 
+        $offer = Auth::user()
             ? $listing->offers()->byMe()->first()
             : null;
 

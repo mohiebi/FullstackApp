@@ -55,6 +55,11 @@ class Listing extends Model
         return $query->orderByDesc('created_at');
     }
 
+    public function scopeWithoutSold(Builder $query): Builder
+    {
+        return $query->whereNull('sold_at');
+    }
+
     /**
      * Get all of the offers for the Listing
      *
