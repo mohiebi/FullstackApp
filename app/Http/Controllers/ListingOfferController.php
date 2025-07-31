@@ -6,11 +6,14 @@ use App\Models\Listing;
 use App\Models\Offer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Response;
 
 class ListingOfferController extends Controller
 {
-    Public function store(Listing $listing, Request $request) : RedirectResponse {
+    public function store(Listing $listing, Request $request): RedirectResponse
+    {
+        Gate::authorize('view', $listing);
         $listing->offers()->save(
             Offer::make(
                 $request->validate([
@@ -20,7 +23,8 @@ class ListingOfferController extends Controller
         );
 
         return redirect()->back()->with(
-            'success', 'Offer was made!'
+            'success',
+            'Offer was made!'
         );
     }
 }

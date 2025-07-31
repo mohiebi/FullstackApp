@@ -47,7 +47,7 @@ class ListingPolicy
      */
     public function update(User $user, Listing $listing): bool
     {
-        return $listing->by_user_id == $user->id;
+        return $listing->sold_at == null && ($listing->by_user_id == $user->id);
     }
 
     /**
