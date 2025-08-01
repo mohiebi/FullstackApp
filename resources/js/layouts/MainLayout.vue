@@ -9,12 +9,12 @@
                     <Link :href="route('listing.index')">Larevel + Vue</Link>
                 </div>
                 <div v-if="user" class="flex gap-4 items-center">
-                     <div class="text-gray-500 relative pr-2 py-2 text-lg">
+                     <Link class="text-gray-500 relative pr-2 py-2 text-lg" :href="route('notification.index')">
                         🔔
                         <div v-if="notificationCount" class="absolute right-0 top-0 w-5 h-5 bg-red-700 dark:bg-red-400 text-white font-medium border border-white dark:border-gray-900 rounded-full text-xs text-center">
                             {{ notificationCount }}
                         </div>
-                    </div>
+                    </Link>
                     <Link :href="route('realtor.listing.index')">
                         {{ user.name }}
                     </Link>
