@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ListingOfferController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RealtorListingAcceptOfferController;
 use App\Http\Controllers\RealtorListingController;
 use App\Http\Controllers\RealtorListingImageController;
@@ -32,3 +33,6 @@ Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function (
     Route::resource('listing.image', RealtorListingImageController::class)
         ->only(['create', 'store', 'destroy']);
 });
+
+Route::resource('notification', NotificationController::class)->middleware('auth')->only('index');
+
