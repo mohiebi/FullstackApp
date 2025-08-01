@@ -5,7 +5,7 @@
                 <img v-for="image in listing.images" :key="image.id" :src="image.src" />
             </div>
         </Box>
-        <EmptyState v-else>
+        <EmptyState v-else class="md:col-span-7 flex items-center">
             No images
         </EmptyState>
         <div class="md:col-span-5 flex flex-col gap-4">
