@@ -52,6 +52,6 @@ const user = computed(() =>
     page.props?.auth?.user ?? null
 );
 const notificationCount = computed(
-    () => page.props?.auth?.user?.notificationCount ?? null
+    () => Math.min(page.props?.auth?.user?.notificationCount ?? null , +9)
 );
 </script>
