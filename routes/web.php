@@ -23,9 +23,9 @@ require __DIR__ . '/auth.php';
 
 Route::resource('listing', ListingController::class)->only(['index', 'show']);
 
-Route::resource('listing.offer', ListingOfferController::class)->middleware('auth')->only('store');
+Route::resource('listing.offer', ListingOfferController::class)->middleware('auth', 'verified')->only('store');
 
-Route::prefix('realtor')->name('realtor.')->middleware('auth')->group(function () {
+Route::prefix('realtor')->name('realtor.')->middleware('auth', 'verified')->group(function () {
     Route::name('listing.restore')
         ->put('listing/{listing}/restore', [RealtorListingController::class, 'restore'])->withTrashed();
     Route::resource('listing', RealtorListingController::class)->withTrashed();
