@@ -21,7 +21,7 @@
                     </Link>
                     <Link :href="route('realtor.listing.create')" class="btn-primary">+ New Listing</Link>
                     <div>
-                        <Link :href="route('logout')" method="POST"> Logout </Link>
+                        <Link :href="route('logout')" method="post"> Logout </Link>
                     </div>
                 </div>
                 <div v-else class=" flex items-center gap-3">
@@ -41,18 +41,37 @@
     </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { PageProps as InertiaPageProps } from '@inertiajs/core';
 import { Link, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue'
 
-const page = usePage()
+interface User {
+    name: string;
+    notificationCount: number;
+}
+
+interface CustomProps {
+    auth?: {
+        user?: User;
+    };
+    flash?: {
+        success?: string;
+    };
+}
+
+type PageProps = InertiaPageProps & CustomProps;
+const page = usePage<PageProps>();
+
 const flashSuccess = computed(() =>
-    page.props?.flash?.success ?? null
+    page.props.flash?.success ?? null
 );
+
 const user = computed(() =>
-    page.props?.auth?.user ?? null
+    page.props.auth?.user ?? null
 );
-const notificationCount = computed(
-    () => Math.min(page.props?.auth?.user?.notificationCount ?? null, +9)
+
+const notificationCount = computed(() =>
+    Math.min(page.props.auth?.user?.notificationCount ?? 0, 9)
 );
 </script>
