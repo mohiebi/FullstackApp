@@ -12,11 +12,13 @@ declare namespace App.DTO {
         images: Array<any>;
         offerMade: App.DTO.OfferData | null;
     };
+
     export type ListingImageData = {
         id: number;
         filename: string;
         src: string;
     };
+
     export type OfferData = {
         id: number;
         amount: number;
@@ -24,6 +26,7 @@ declare namespace App.DTO {
         rejected_at: string | null;
         bidder: App.DTO.UserData | null;
     };
+
     export type UserData = {
         id: number;
         name: string;
