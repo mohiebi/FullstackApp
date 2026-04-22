@@ -285,7 +285,7 @@ The seeder creates:
 The seeded admin email is:
 
 ```text
-e.mohamadhosein@gmail.com
+test@gmail.com
 ```
 
 The user factory usually uses the default Laravel test password:
