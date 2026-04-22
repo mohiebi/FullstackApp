@@ -314,17 +314,3 @@ Run:
 ```bash
 composer run test
 ```
-
-## Suggested Repo Names
-
-`FullstackApp` is too generic for a portfolio repo. Better options:
-
-- `RealEstate-Marketplace` - clear, professional, and immediately understandable
-- `Laravel-Vue-RealEstate` - highlights the stack and domain
-- `PropertyHub` - shorter product-style name
-- `EstateBoard` - clean and dashboard-like
-- `HomeBid` - emphasizes the offer/bidding flow
-
-My recommendation: `Laravel-Vue-RealEstate`.
-
-It is the most professional for GitHub because it tells recruiters and developers both the stack and the project domain before they even open the repo.
