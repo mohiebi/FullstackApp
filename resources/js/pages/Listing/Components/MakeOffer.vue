@@ -21,7 +21,7 @@
     </Box>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Box from '@/components/ui/Listings/Box.vue';
 import Price from '@/components/ui/Listings/Price.vue';
 import { useForm } from '@inertiajs/vue3';

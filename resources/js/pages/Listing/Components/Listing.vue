@@ -15,7 +15,7 @@
     </Box>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Link } from '@inertiajs/vue3'
 import ListingAddress from '@/components/ui/Listings/ListingAddress.vue'
 import ListingSpace from '@/components/ui/Listings/ListingSpace.vue'

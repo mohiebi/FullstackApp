@@ -35,7 +35,7 @@
     </Box>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Box from '@/components/ui/Listings/Box.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 import { Link, router, useForm } from '@inertiajs/vue3';

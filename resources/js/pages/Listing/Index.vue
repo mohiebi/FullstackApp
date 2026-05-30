@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Pagination from '@/components/ui/Pagination.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 import Listing from '@/pages/Listing/Components/Listing.vue';

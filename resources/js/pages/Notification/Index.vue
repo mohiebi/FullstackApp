@@ -31,7 +31,7 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import EmptyState from '@/components/ui/Listings/EmptyState.vue';
 import Price from '@/components/ui/Listings/Price.vue';
 import Pagination from '@/components/ui/Pagination.vue';

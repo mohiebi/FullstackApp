@@ -66,7 +66,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Box from '@/components/ui/Listings/Box.vue';
 import ListingAddress from '@/components/ui/Listings/ListingAddress.vue';
 import ListingSpace from '@/components/ui/Listings/ListingSpace.vue';
